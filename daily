@@ -1,0 +1,62 @@
+在ubuntu上不断学习摸索：
+1.学习使用gcc
+在需要使用的文件夹中打开终端
+vim test.c //在此文件目录下创建一个c
+按i进入编写代码
+按esc后按:输入wq
+按enter即保存退出
+gcc -E test.c -o test.i          //预处理（注意空格）
+gcc -S test.i -o test.s         //编译
+gcc -C test.s -o test.o        //汇编
+gcc test.o -o test            //链接
+./test                       //运行
+2.学习使用g++
+在需要使用的文件夹中打开终端
+vim test.cpp //在此文件目录下创建一个cpp
+编辑保存退出同上
+g++ test.cpp              //自动生成了a.out文件
+./a.out                   //运行
+3.配置shadowsocksqt5
+将qt5的压缩包下载解压到一个自己建的文件夹目录下，在这个目录中打开终端
+sudo apt-get update
+chmod a+x Shadowsocks-Qt5-3.0.1-x86_64.AppImage
+./Shadowsocks-Qt5-3.0.1-x86_64.AppImage    //运行程序
+nohup ./Shadowsocks-Qt5-3.0.1-x86_64.AppImage &   //在终端退出后能继续运行
+在qt5界面中添加代理
+进入系统设置选择网络代理
+改为手动把最后一行改为 127.0.0.1    1080
+4.配置github
+注册github账号
+sudo apt-get install git        //安装git
+git config --global user.name "wudingchao"    
+git config --global user.email "dingchaowu4@gmail.com"   //设置用户名和邮箱
+创建一个目录打开终端
+mkdir learngit   //在这个目录下创建一个learngit文件
+cd learngit  //进入文件
+pwd   //显示当前目录
+git init   //把这个目录变成git仓库
+vim readme.txt   //在仓库里新建一个文件，按i输入，esc后按：wq保存退出
+git add readme.txt
+git commit -m "wrote a readme file" //添加文件到仓库并显示说明
+ssh-keygen -t rsa -C "dingchaowu4@gmail.com" //生成ssh钥匙
+cat ~/.ssh/id_rsa.pub //查看ssh并将内容复制
+登录git
+设置里添加ssh粘贴
+创建一个仓库learngit
+git remote add origin git@github.com:wudingchao/learngit.git
+git push -u origin master  //关联仓库
+git push -u origin +master //强制关联
+之后可以git push origin master
+git clone git@github.com:wudingchao/work.git  //在git可以再新建一个仓库work并克隆到本地
+vim test.txt //在本地新建一个文件
+git checkout -b dev  //创建一个dev分支并切换
+git branch  //查看当前分支
+git add  test.txt
+git commit -m "branch test"  //   添加文件到仓库
+git checkout master  //切换到上游分支
+git merge dev    //合并分支
+git push origin maste   //关联到远程仓库
+git add test.cpp  //添加文件 
+git commit -m 'first commit'  //关联
+git push origin master
+
